@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Seat_Reservation.props" />
+</Project>
