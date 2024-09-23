@@ -10,6 +10,7 @@ using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Cryptography;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace Seat_Reservation.Controllers;
@@ -109,30 +110,24 @@ public IActionResult Password_Change([FromRoute] string Email){
 
 
 [HttpGet("User_Id/{Id}")]
+public async Task<ActionResult<User>> GetName(int Id)
+{
+    var user = await _context.Users
+      .Where(x=>x.User_Id==Id)
+        .Select(x=>x.Name) // Include User_Id if needed
+        .FirstOrDefaultAsync();
 
-public IActionResult GetName(int Id){
-    var user=_context.Users
-    .Where(x=>x.User_Id==Id)
-    .Select(x=>x.Name)
-    .FirstOrDefault();
-    if(user!=null){
-
-       var resp = new
-            {
-                
-                Name = "John Doe",
-               
-            };
-    return Ok(resp);
-      
-
-
+    if (user != null)
+    {
+        var usr=new{
+            name=user
+        };
+        return Ok(usr); // Return the user object
     }
 
-    return Ok();
-
-    
+    return NotFound(); // Use NotFound() if the user doesn't exist
 }
+
 
 [HttpGet]
 public IActionResult getall(){
