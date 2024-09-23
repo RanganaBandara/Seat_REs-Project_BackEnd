@@ -27,6 +27,10 @@ namespace Seat_Reservation.Controllers
             return await _context.Reservations.ToListAsync();
         }
 
+       
+
+
+
         // GET: api/Seats/5
         [HttpGet("Filtering/{dt}")]
         public async Task<ActionResult<Reservation>> GetSeat(string  dt)
@@ -66,14 +70,14 @@ namespace Seat_Reservation.Controllers
                 return NotFound();
             }
 
-            return  users;
+            return users;
         }
 
 
         // POST: api/Seats/Reserve
         [HttpPost()]
         [Route("Reserve")]
-        public async Task<ActionResult<Seat>> ReserveSeat([FromBody] Reservation reservation)
+        public async Task<ActionResult<Seat>> ReserveSeat(Reservation reservation)
         {
             var seat = await _context.Seats.FindAsync(reservation.SeatNumber);
         
@@ -86,6 +90,27 @@ namespace Seat_Reservation.Controllers
            
 
             _context.Reservations.Add(reservation);
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
+
+        //resrvationregister
+         [HttpPost()]
+        [Route("seatRegister")]
+        public async Task<ActionResult<Seat>> SeatRegister([FromBody] Seat seat)
+        {
+            var st = await _context.Seats.FindAsync(seat.SeatNumber);
+        
+
+            if (st != null) {
+                return BadRequest("Seat is already there.");
+            }
+
+           
+           
+
+            _context.Seats.Add(seat);
             await _context.SaveChangesAsync();
 
             return Ok();
