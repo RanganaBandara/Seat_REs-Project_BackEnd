@@ -106,6 +106,34 @@ public IActionResult Password_Change([FromRoute] string Email){
 
     
 }
+
+
+[HttpGet("User_Id/{Id}")]
+
+public IActionResult GetName(int Id){
+    var user=_context.Users
+    .Where(x=>x.User_Id==Id)
+    .Select(x=>x.Name)
+    .FirstOrDefault();
+    if(user!=null){
+
+       var resp = new
+            {
+                
+                Name = "John Doe",
+               
+            };
+    return Ok(resp);
+      
+
+
+    }
+
+    return Ok();
+
+    
+}
+
 [HttpGet]
 public IActionResult getall(){
     var all=_context.Users.ToList();
