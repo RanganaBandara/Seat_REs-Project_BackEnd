@@ -4386,11 +4386,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ANGULER\\SEATRESERVATION\\backend4\\Seat_REs-Project_BackEnd\\Seat_Reservation.csproj",
+      "projectUniqueName": "D:\\ANGULER\\SEATRESERVATION\\backend5\\Seat_REs-Project_BackEnd\\Seat_Reservation.csproj",
       "projectName": "Seat_Reservation",
-      "projectPath": "D:\\ANGULER\\SEATRESERVATION\\backend4\\Seat_REs-Project_BackEnd\\Seat_Reservation.csproj",
+      "projectPath": "D:\\ANGULER\\SEATRESERVATION\\backend5\\Seat_REs-Project_BackEnd\\Seat_Reservation.csproj",
       "packagesPath": "C:\\Users\\My PC\\.nuget\\packages\\",
-      "outputPath": "D:\\ANGULER\\SEATRESERVATION\\backend4\\Seat_REs-Project_BackEnd\\obj\\",
+      "outputPath": "D:\\ANGULER\\SEATRESERVATION\\backend5\\Seat_REs-Project_BackEnd\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
