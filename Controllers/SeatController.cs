@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Seat_Reservation.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Threading.Tasks;
 
 namespace Seat_Reservation.Controllers
@@ -39,7 +40,35 @@ namespace Seat_Reservation.Controllers
 
             return seat;
         }
-      
+        //seat count
+         [HttpGet("count/{dt}")]
+        public IActionResult CountSeat(string  dt)
+        {
+            int count =  _context.Reservations
+                                                .Where(s => s.ReservationDate== dt)
+                                                .Count();
+
+            if (count== null)
+            {
+                return NotFound();
+            }
+
+            return Ok(count);
+        }
+
+      //get reservation matchiing to id
+       [HttpGet("rsedeatils/{id}")]
+        public async Task<ActionResult<Reservation>> GetReservationDetails(int id)
+        {
+           var users= await _context.Reservations.FirstOrDefaultAsync(x=>x.User_Id==id);
+            if (users== null)
+            {
+                return NotFound();
+            }
+
+            return  users;
+        }
+
 
         // POST: api/Seats/Reserve
         [HttpPost()]
