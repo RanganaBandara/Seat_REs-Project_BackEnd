@@ -4380,19 +4380,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Rangana\\.nuget\\packages\\": {}
+    "C:\\Users\\My PC\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Rangana\\Seat_Reservation\\Seat_Reservation.csproj",
+      "projectUniqueName": "D:\\ANGULER\\SEATRESERVATION\\backend4\\Seat_REs-Project_BackEnd\\Seat_Reservation.csproj",
       "projectName": "Seat_Reservation",
-      "projectPath": "c:\\Users\\Rangana\\Seat_Reservation\\Seat_Reservation.csproj",
-      "packagesPath": "C:\\Users\\Rangana\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Rangana\\Seat_Reservation\\obj\\",
+      "projectPath": "D:\\ANGULER\\SEATRESERVATION\\backend4\\Seat_REs-Project_BackEnd\\Seat_Reservation.csproj",
+      "packagesPath": "C:\\Users\\My PC\\.nuget\\packages\\",
+      "outputPath": "D:\\ANGULER\\SEATRESERVATION\\backend4\\Seat_REs-Project_BackEnd\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Rangana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\My PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4470,7 +4475,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
