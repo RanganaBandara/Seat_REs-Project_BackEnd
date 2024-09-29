@@ -49,35 +49,46 @@ namespace Seat_Reservation.Controllers
         public IActionResult CountSeat(string  dt)
         {
             int count =  _context.Reservations
-                                                .Where(s => s.ReservationDate== dt)
-                                                .Count();
+                        
+                        .Where(s => s.ReservationDate== dt)
+                        .Count();
 
             if (count== null)
             {
                 return NotFound();
-            }
 
-            return Ok(count);
+            }
+            var response=new{
+                cnt=count
+            };
+
+            return Ok(response);
         }
 
       //get reservation matchiing to id
        [HttpGet("rsedeatils/{id}")]
         public async Task<ActionResult<Reservation>> GetReservationDetails(int id)
         {
-           var users= await _context.Reservations.FirstOrDefaultAsync(x=>x.User_Id==id);
+          var users = await _context.Reservations
+                .Where(x => x.User_Id == id)
+                .ToListAsync();
+
             if (users== null)
             {
                 return NotFound();
             }
+            var response=new{
+                details=users
+            };
 
-            return users;
+            return Ok(response);
+        
         }
-
 
         // POST: api/Seats/Reserve
         [HttpPost()]
         [Route("Reserve")]
-        public async Task<ActionResult<Seat>> ReserveSeat([FromBody] Reservation reservation)
+        public async Task<ActionResult<Seat>> ReserveSeat(Reservation reservation)
         {
             var seat = await _context.Seats.FindAsync(reservation.SeatNumber);
         
